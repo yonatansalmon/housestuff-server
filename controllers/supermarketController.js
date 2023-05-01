@@ -13,7 +13,7 @@ exports.addItem = async (req, res) => {
   const item = new Supermarket({
     name: req.body.name,
     quantity: req.body.quantity,
-    unit: req.body.unit,
+    date: req.body.date
   });
   console.log(item)
   try {
