@@ -34,3 +34,25 @@ exports.deleteItem = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
+
+exports.editItem = async (req, res) => {
+  const { id } = req.params;
+  const { name, quantity } = req.body;
+
+  try {
+    const updatedItem = await Supermarket.findByIdAndUpdate(
+      id,
+      { name, quantity },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedItem) {
+      return res.status(404).json({ message: 'Item not found' });
+    }
+
+    res.json(updatedItem);
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Error updating item', error });
+  }
+}
