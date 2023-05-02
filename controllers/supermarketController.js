@@ -13,11 +13,12 @@ exports.addItem = async (req, res) => {
   const item = new Supermarket({
     name: req.body.name,
     quantity: req.body.quantity,
-    date: req.body.date
   });
-  console.log(item)
   try {
+    console.log(item)
     const newItem = await item.save();
+    console.log(item)
+
     res.status(201).send(newItem);
   } catch (err) {
     console.log(err)
