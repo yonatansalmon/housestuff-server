@@ -13,6 +13,7 @@ app.use('/api', supermarketRouter);
 mongoose.connect('mongodb+srv://admin:admin@countriescluster.tf1qxxo.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  dbName: 'homestuff'
 });
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
