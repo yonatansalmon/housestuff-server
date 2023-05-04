@@ -8,8 +8,10 @@ const budgetRouter = require('./routes/budgetRoutes');
 const app = express();
 const PORT = 8080;
 
-app.use(cors({ origin: ['http://localhost:3000','https://housestuff.netlify.app'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://housestuff.netlify.app', '*'], credentials: true }));
 app.use(express.json());
+
+
 app.use('/api/supermarket-list', supermarketRouter);
 app.use('/api/budget', budgetRouter);
 

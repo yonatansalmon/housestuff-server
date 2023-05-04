@@ -2,6 +2,7 @@ const Supermarket = require('../models/supermarketModel');
 
 exports.getAllItems = async (req, res) => {
   try {
+    console.log('first')
     const items = await Supermarket.find();
     res.status(200).json(items);
   } catch (err) {
