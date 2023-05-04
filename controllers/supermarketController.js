@@ -38,14 +38,15 @@ exports.deleteItem = async (req, res) => {
 
 exports.editItem = async (req, res) => {
   const { id } = req.params;
-  const { name, quantity } = req.body;
+  const { checked } = req.body;
 
   try {
     const updatedItem = await Supermarket.findByIdAndUpdate(
       id,
-      { name, quantity },
+      { checked: checked },
       { new: true, runValidators: true }
     );
+    console.log(updatedItem)
 
     if (!updatedItem) {
       return res.status(404).json({ message: 'Item not found' });
