@@ -15,9 +15,7 @@ exports.addItem = async (req, res) => {
     quantity: req.body.quantity,
   });
   try {
-    console.log(item)
     const newItem = await item.save();
-    console.log(item)
 
     res.status(201).send(newItem);
   } catch (err) {
@@ -46,7 +44,6 @@ exports.editItem = async (req, res) => {
       { checked: checked },
       { new: true, runValidators: true }
     );
-    console.log(updatedItem)
 
     if (!updatedItem) {
       return res.status(404).json({ message: 'Item not found' });
